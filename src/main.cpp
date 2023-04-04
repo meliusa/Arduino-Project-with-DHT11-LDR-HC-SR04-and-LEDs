@@ -47,18 +47,18 @@ void loop()
   }
 
   nilaiSensor = analogRead(sensorLDR);
-  if (nilaiSensor <= 1000 && temperature < 24)
-  {
-    digitalWrite(RED_PIN, HIGH);
-    digitalWrite(GREEN_PIN, LOW);
-    digitalWrite(BLUE_PIN, LOW);
-  }
-  else
-  {
-    digitalWrite(RED_PIN, LOW);
-    digitalWrite(GREEN_PIN, LOW);
-    digitalWrite(BLUE_PIN, HIGH);
-  }
+  // if (nilaiSensor <= 1000 && temperature < 24)
+  // {
+  //   digitalWrite(RED_PIN, HIGH);
+  //   digitalWrite(GREEN_PIN, LOW);
+  //   digitalWrite(BLUE_PIN, LOW);
+  // }
+  // else
+  // {
+  //   digitalWrite(RED_PIN, LOW);
+  //   digitalWrite(GREEN_PIN, LOW);
+  //   digitalWrite(BLUE_PIN, HIGH);
+  // }
 
   // Trigger ultrasonic pulse
   digitalWrite(trigPin, LOW);
@@ -73,41 +73,41 @@ void loop()
   // Convert duration to distance (in cm)
   distance = duration * 0.034 / 2;
 
-  // if (distance == 2)
-  // {
-  //   digitalWrite(RED_PIN, LOW);
-  //   digitalWrite(GREEN_PIN, LOW);
-  //   digitalWrite(BLUE_PIN, HIGH);
-  // }
-  // else if (distance == 4)
-  // {
-  //   digitalWrite(RED_PIN, LOW);
-  //   digitalWrite(GREEN_PIN, HIGH);
-  //   digitalWrite(BLUE_PIN, LOW);
-  // }
-  // else if (distance == 6)
-  // {
-  //   digitalWrite(RED_PIN, HIGH);
-  //   digitalWrite(GREEN_PIN, LOW);
-  //   digitalWrite(BLUE_PIN, LOW);
-  // }
-  // else if (distance > 6)
-  // {
-  //   digitalWrite(RED_PIN, HIGH);
-  //   digitalWrite(GREEN_PIN, LOW);
-  //   digitalWrite(BLUE_PIN, LOW);
-  //   delay(1000);
+  if (distance == 2)
+  {
+    digitalWrite(RED_PIN, LOW);
+    digitalWrite(GREEN_PIN, LOW);
+    digitalWrite(BLUE_PIN, HIGH);
+  }
+  else if (distance == 4)
+  {
+    digitalWrite(RED_PIN, LOW);
+    digitalWrite(GREEN_PIN, HIGH);
+    digitalWrite(BLUE_PIN, LOW);
+  }
+  else if (distance == 6)
+  {
+    digitalWrite(RED_PIN, HIGH);
+    digitalWrite(GREEN_PIN, LOW);
+    digitalWrite(BLUE_PIN, LOW);
+  }
+  else if (distance > 6)
+  {
+    digitalWrite(RED_PIN, HIGH);
+    digitalWrite(GREEN_PIN, LOW);
+    digitalWrite(BLUE_PIN, LOW);
+    delay(1000);
 
-  //   digitalWrite(RED_PIN, LOW);
-  //   digitalWrite(GREEN_PIN, HIGH);
-  //   digitalWrite(BLUE_PIN, LOW);
-  //   delay(1000);
+    digitalWrite(RED_PIN, LOW);
+    digitalWrite(GREEN_PIN, HIGH);
+    digitalWrite(BLUE_PIN, LOW);
+    delay(1000);
 
-  //   digitalWrite(RED_PIN, LOW);
-  //   digitalWrite(GREEN_PIN, LOW);
-  //   digitalWrite(BLUE_PIN, HIGH);
-  //   delay(1000);
-  // }
+    digitalWrite(RED_PIN, LOW);
+    digitalWrite(GREEN_PIN, LOW);
+    digitalWrite(BLUE_PIN, HIGH);
+    delay(1000);
+  }
 
   // Print distance to serial monitor
   Serial.print("Distance: ");
